@@ -4,6 +4,9 @@ export AWS_ACCESS_KEY_ID=$1
 export AWS_SECRET_ACCESS_KEY=$2
 export AWS_DEFAULT_REGION="us-east-1"
 
+git clone https://github.com/joindevops-1/k8-eksctl1.git
+
+
 ARCH=amd64
 PLATFORM=$(uname -s)_$ARCH
 
@@ -27,3 +30,6 @@ mv kubectl /usr/local/bin/kubectl
 curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
 tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
 mv /tmp/eksctl /usr/local/bin
+
+cd k8-eksctl1
+eksctl create cluster --config-file=eks.yaml
