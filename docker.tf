@@ -23,7 +23,7 @@ resource "null_resource" "docker" {
   # Bootstrap script can run on any instance of the cluster
   # So we just choose the first in this case
   connection {
-    host = aws_instance.this.private_ip
+    host = aws_instance.this.public_ip
     type = "ssh"
     user     = "ec2-user"
     password = "DevOps321"
